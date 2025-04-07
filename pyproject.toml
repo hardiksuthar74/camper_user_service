@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "camper"
+version = "0.1.0"
+description = ""
+authors = ["hardiksuthar74 <hardiksuthar74@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.12"
+uvicorn = "^0.34.0"
+alembic = "^1.15.2"
+sqlalchemy = "^2.0.40"
+scalar-fastapi = "^1.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
