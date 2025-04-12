@@ -12,6 +12,7 @@ from alembic import context
 
 from src.settings.db import rdb_settings
 from src.db.mixins.base import Base
+from src.user.model import User  # noqa: F401
 
 
 # this is the Alembic Config object, which provides
