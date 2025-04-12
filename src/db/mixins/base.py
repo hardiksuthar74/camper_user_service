@@ -1,5 +1,5 @@
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
-from uuid import UUID
+from uuid import UUID, uuid4
 from sqlalchemy.dialects import postgresql as pg
 
 
@@ -13,9 +13,21 @@ class Base(DeclarativeBase):
     id: Mapped[UUID] = mapped_column(
         pg.UUID(as_uuid=True),
         primary_key=True,
-        default=UUID,
+        default=uuid4,
     )
 
 
-class BaseModel(TimestampMixin, UserTrackingMixin, StatusMixin, SoftDeleteMixin):
+class BaseModel(
+    TimestampMixin,
+    StatusMixin,
+):
+    __abstract__ = True
+
+
+class BaseAuditModel(
+    TimestampMixin,
+    UserTrackingMixin,
+    StatusMixin,
+    SoftDeleteMixin,
+):
     __abstract__ = True
